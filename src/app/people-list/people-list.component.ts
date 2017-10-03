@@ -9,6 +9,7 @@ import { PeopleService } from '../people.service';
 })
 export class PeopleListComponent implements OnInit {
 people: Person[] = [];
+selectedPerson: Person;
 
   constructor(private peopleService: PeopleService) {
    this.peopleService = peopleService
@@ -16,6 +17,10 @@ people: Person[] = [];
   }
 
   ngOnInit() {
+  }
+
+  selectPerson(person: Person){
+      this.selectedPerson = person;
   }
 
 }

@@ -11,13 +11,13 @@ export class PeopleListComponent implements OnInit {
 people: Person[] = [];
 selectedPerson: Person;
 
-  constructor(private peopleService: PeopleService) {
-   this.peopleService = peopleService
-  this.people = peopleService.getAll();
-  }
+constructor(private peopleService: PeopleService) { }
 
   ngOnInit() {
-  }
+     this.peopleService
+         .getAll()
+         .subscribe(p => this.people = p);
+   }
 
   selectPerson(person: Person){
       this.selectedPerson = person;
